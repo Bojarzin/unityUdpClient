@@ -14,7 +14,8 @@ public class NetworkMan : MonoBehaviour
     {
         udp = new UdpClient();
         
-        udp.Connect("PUT_IP_ADDRESS_HERE",12345);
+        udp.Connect("localhost", 12345);
+       // udp.Connect("ec2-18-188-63-98.us-east-2.compute.amazonaws.com", 12345);
 
         Byte[] sendBytes = Encoding.ASCII.GetBytes("connect");
       
