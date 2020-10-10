@@ -22,5 +22,17 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.transform.Translate(new Vector3(-1, 0, 0));
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            gameObject.transform.Translate(new Vector3(0, 0, 1));
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            gameObject.transform.Translate(new Vector3(0, 0, -1));
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            gameObject.transform.Translate(new Vector3(1, 0, 0));
+        }
     }
 }
