@@ -319,15 +319,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ad586668d834644b8076c3e4f8466f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAddress: 
-  playerGO: {fileID: 4145734886209464203, guid: 02ecaa9eccf02044a88eb4d49b819fde,
+  thisID: 
+  cubePrefab1: {fileID: 4145734886209464203, guid: 02ecaa9eccf02044a88eb4d49b819fde,
     type: 3}
-  newPlayers: []
-  droppedPlayers: []
-  allPlayers:
-    players: []
+  connectedPlayers: []
   latestMessage:
     cmd: 0
+    player:
+      id: 
+      color:
+        R: 0
+        G: 0
+        B: 0
+      position: {x: 0, y: 0, z: 0}
+      spawned: 0
+      playerMesh: {fileID: 0}
   lastestGameState:
     players: []
 --- !u!1 &963194225

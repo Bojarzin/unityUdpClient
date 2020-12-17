@@ -1,38 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using static NetworkMan;
 
+[Serializable]
 public class PlayerController : MonoBehaviour
 {
-    NetworkMan networkMan;
+    public NetworkMan NetManager;
+    public Vector3 position = new Vector3(0, 0, 0);
+    public string id;
     // Start is called before the first frame update
+
     void Start()
     {
-        networkMan = GameObject.Find("NetworkMan").GetComponent<NetworkMan>();
+        position = new Vector3(0, 0, 0);
+        NetManager = GameObject.Find("NetworkMan").GetComponent<NetworkMan>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.name != networkMan.playerAddress)
+        if (NetManager.thisID != id)
         {
+            transform.position = position;
             return;
         }
-        if(Input.GetKeyDown(KeyCode.A))
+
+        if (Input.GetKey(KeyCode.W))
         {
-            gameObject.transform.Translate(new Vector3(-1, 0, 0));
+            position.y += 1 * Time.deltaTime;
+            Debug.Log("W");
         }
-        if (Input.GetKeyDown(KeyCode.W))
+
+        if (Input.GetKey(KeyCode.A))
         {
-            gameObject.transform.Translate(new Vector3(0, 0, 1));
+            position.x -= 1 * Time.deltaTime;
+            Debug.Log("A");
         }
-        if (Input.GetKeyDown(KeyCode.S))
+
+        if (Input.GetKey(KeyCode.S))
         {
-            gameObject.transform.Translate(new Vector3(0, 0, -1));
+            position.y -= 1 * Time.deltaTime;
+            Debug.Log("S");
         }
-        if (Input.GetKeyDown(KeyCode.D))
+
+        if (Input.GetKey(KeyCode.D))
         {
-            gameObject.transform.Translate(new Vector3(1, 0, 0));
+            position.x += 1 * Time.deltaTime;
+            Debug.Log("D");
         }
     }
 }
